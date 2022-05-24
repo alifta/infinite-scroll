@@ -11,7 +11,7 @@ let isInitialLoad = true;
 const initialCount = 5;
 const afterInitialCount = 30;
 const apiKey = 'vlEzhuaH4l99GcCP5oDmVCVa1y31thW4Kn63rJUSsM0';
-const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${initialCount}`;
+let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${initialCount}`;
 
 function updateApiUrlWithNewCount(photoCount) {
     apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${photoCount}`;
@@ -20,7 +20,7 @@ function updateApiUrlWithNewCount(photoCount) {
 // Check if all images were loaded
 function imageLoaded() {
     imagesLoaded++;
-    if (imageLoaded === totalImages) {
+    if (imagesLoaded === totalImages) {
         ready = true;
         loader.hidden = true;
     }
@@ -35,7 +35,7 @@ function setAttributes(element, attributes) {
 
 // Create elements for links and photos then add to DOM
 function displayPhotos() {
-    imageLoaded = 0;
+    imagesLoaded = 0;
     totalImages = photosArray.length;
     photosArray.forEach((photo) => {
         // Create <a> to link to Unsplash
